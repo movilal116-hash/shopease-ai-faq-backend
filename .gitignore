@@ -1,0 +1,25 @@
+# 1. Virtual Environments (HUGE files, never upload)
+FAQ_BOTS_env/
+venv/
+env/
+
+# 2. Environment Variables (SECRET API KEYS!)
+.env
+
+# 3. Python Cache (Automatically created by Python)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 4. Vector Database (Chroma creates a local folder)
+Chroma_db/
+chroma.sqlite3
+
+# 5. VS Code Settings
+.vscode/
+
+# 6. OS Specific Files
+.DS_Store
+Thumbs.db

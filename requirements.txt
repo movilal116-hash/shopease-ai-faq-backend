@@ -4,7 +4,21 @@ langchain-community
 langchain-groq
 langchain-chroma
 langchain-text-splitters
-jina
+langchain-google-genai
 python-dotenv
 pypdf
---only-binary=:all:
+
+
+
+
+# fastapi
+# uvicorn
+# langchain-community
+# langchain-groq
+# langchain-chroma
+# langchain-text-splitters
+# jina
+# python-dotenv
+# pypdf
+# --only-binary=:all:
+

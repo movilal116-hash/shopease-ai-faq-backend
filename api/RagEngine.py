@@ -2,7 +2,8 @@ import os
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import JinaEmbeddings
+# from langchain_community.embeddings import JinaEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings  ##### add this can be deployed on render
 from langchain_chroma import Chroma
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
@@ -14,13 +15,21 @@ class RAGEngine:
         loader = PyPDFLoader("shopease_faq.pdf")
         docs = loader.load()
         print(f"SUCCESS: Loaded {len(docs)} pages from the PDF!")
+
         splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=100)
         chunks = splitter.split_documents(docs)
         
-        embeddings = JinaEmbeddings(
-            api_key=os.getenv("JINA_API_KEY"),
-            model_name="jina-embeddings-v2-base-en"
+        # embeddings = JinaEmbeddings(
+        #     api_key=os.getenv("JINA_API_KEY"),
+        #     model_name="jina-embeddings-v2-base-en"
+        # )
+
+            # for easy to deployed so use this end-point
+        embeddings = GoogleGenerativeAIEmbeddings(
+            model="models/gemini-embedding-001", # Current free-tier embedding model
+            google_api_key=os.getenv("GOOGLE_API_KEY")
         )
+        
         
         vector_store = Chroma.from_documents(chunks, embeddings)
         self.retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 3})

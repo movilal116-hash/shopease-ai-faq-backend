@@ -3,6 +3,7 @@ uvicorn
 langchain-community
 langchain-groq
 langchain-chroma
+chromadb-client  # <--- ADD THIS, and REMOVE any implicit 'chromadb' if it's there
 langchain-text-splitters
 jina
 python-dotenv

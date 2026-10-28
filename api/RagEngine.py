@@ -40,15 +40,30 @@ class RAGEngine:
             temperature=0.0
         )
         
+#         self.prompt = PromptTemplate(
+#             template="""
+# You are a helpful assistant. Use the following pieces of context to answer the question at the end.
+# If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+# {context}
+
+# Question: {question}
+# Helpful Answer:
+# """,
+#             input_variables=["context", "question"]
+#         )
+
         self.prompt = PromptTemplate(
             template="""
-You are a helpful assistant. Use the following pieces of context to answer the question at the end.
-If you don't know the answer, just say that you don't know, don't try to make up an answer.
+You are a strict customer support bot for ShopEase. 
+Answer the user's question using ONLY the context provided below. 
+If the context does not contain the answer, you MUST reply exactly: "I don't know based on the provided document."
 
+Context:
 {context}
 
 Question: {question}
-Helpful Answer:
+Answer:
 """,
             input_variables=["context", "question"]
         )

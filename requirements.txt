@@ -7,8 +7,15 @@ langchain-text-splitters
 langchain-google-genai
 python-dotenv
 pypdf
-
-
+cryptography
+sqlalchemy
+pymysql
+python-multipart
+passlib[bcrypt]
+bcrypt
+python-jose[cryptography]
+email-validator
+chromadb
 
 
 # fastapi

@@ -23,3 +23,26 @@ chroma.sqlite3
 # 6. OS Specific Files
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+logs/
+
+
+# LangChain / HuggingFace / RAG Caches
+.cache/
+.langchain/
+
+
+# IDE Settings
+.vscode/
+.idea/
+*.swp
+
+#  OS Specific Files
+.DS_Store
+Thumbs.db
+
+#  Temporary SQLite files
+*.sqlite3
+*.db

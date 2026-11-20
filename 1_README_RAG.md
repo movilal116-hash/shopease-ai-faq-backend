@@ -2,6 +2,7 @@
  pip install langchain-community langchain-groq python-dotenv pypdf langchain-text-splitters langchain-huggingface sentence-transformers langchain-chroma faiss-cpu langchain-groq
 
 
+
 # import 
  from langchain_community.document_loaders import PyPDFLoader
  from langchain_text_splitters import RecursiveCharacterTextSplitter

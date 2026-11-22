@@ -6,8 +6,6 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 from pathlib import Path
 
-
-
 ## find the backend directory to locate the .env and certs folder
 Backend_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(Backend_DIR/".env")
@@ -49,7 +47,11 @@ DB_URL = URL.create(
            }
     )
 
-engine = create_engine(DB_URL)
+engine = create_engine(
+    DB_URL,
+    pool_pre_ping=True,
+    pool_recycle=3600
+    )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
